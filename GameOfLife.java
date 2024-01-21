@@ -100,7 +100,7 @@ public class GameOfLife {
 		if (board[i][j]==1) {
 			if (neigbours<2 || neigbours>3) return 0; else return 1;
 		} else {
-			if (neigbours==3 || neigbours == 2) return 1; else return 0;
+			if (neigbours==3 ) return 1; else return 0;
 		}
 	}
 	
