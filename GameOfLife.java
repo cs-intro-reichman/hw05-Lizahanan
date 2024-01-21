@@ -96,11 +96,11 @@ public class GameOfLife {
 	// Assumes that j is at least 1 and at most the number of columns in the board - 1. 
 	// Uses the count(board,i,j) function to count the number of alive neighbors.
 	public static int cellValue(int[][] board, int i, int j) {
-		int neig = count(board, i, j);
+		int neigbours = count(board, i, j);
 		if (board[i][j]==1) {
-			if (neig<2 || neig>3) return 0; else return 1;
+			if (neigbours<2 || neigbours>3) return 0; else return 1;
 		} else {
-			if (neig==3) return 1; else return 0;
+			if (neigbours==3 || neigbours == 2) return 1; else return 0;
 		}
 	}
 	
@@ -112,10 +112,10 @@ public class GameOfLife {
 	public static int count(int[][] board, int i, int j) {
 		// System.out.println("("+i+","+j+")="+board[i][j]);
 		int alive=0;
-		for (int p=Math.max(i-1,0); p<=Math.min(i+1,board.length-1); p++) {
-			for (int q=Math.max(j-1,0); q<=Math.min(j+1,board[0].length-1); q++) { 
+		for (int a=Math.max(i-1,0); a<=Math.min(i+1,board.length-1); a++) {
+			for (int b=Math.max(j-1,0); b<=Math.min(j+1,board[0].length-1); b++) { 
 				// System.out.printf("%2d", board[p][q]);
-				if (board[p][q]==1) alive++;
+				if (board[a][b]==1) alive++;
 			}
 			// System.out.println();
 		}
@@ -132,9 +132,9 @@ public class GameOfLife {
 		// 	System.out.println();
 		// }
 		// System.out.println("Small");
-		for (int p=1; p<arr.length-1; p++) {
-			for (int q=1; q<arr[0].length-1; q++) { 
-				System.out.printf("%3d", arr[p][q]);
+		for (int a=1; a<arr.length-1; a++) {
+			for (int b=1; b<arr[0].length-1; b++) { 
+				System.out.printf("%3d", arr[a][b]);
 			}
 			System.out.println();
 		}
