@@ -129,7 +129,7 @@ public class GameOfLife {
 		int aliveCount = count(board, i, j);
 		//alive
 		if(cellVal == 1){
-			if(aliveCount == 2 || aliveCount ==3){
+			if( aliveCount ==3){
 				return 1;
 			}
 			else{
