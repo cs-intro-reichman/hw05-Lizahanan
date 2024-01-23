@@ -11,7 +11,7 @@ public class GameOfLife {
 		String fileName = args[0];
 		//// Uncomment the test that you want to execute, and re-compile.
 		//// (Run one test at a time).
-		////test1(fileName);
+		//test1(fileName);
 		////test2(fileName);
 		////test3(fileName, 3);
 		play(fileName);
@@ -78,20 +78,20 @@ public class GameOfLife {
 		{
 			String line = in.readLine();
 			if(!line.isEmpty()){
-				int dotCount=0;
-				int xCount = 0;
-				for(int j = 0; j < line.length(); j++) {
+				//int dotCount=0;
+				//int xCount = 0;
+				for(int j = 0; j < line.length();) {
 					char c = line.charAt(j);
 					if(c == '.'){
-						dotCount++;			
+									
 					}
 					else if(c == 'x'){
-						xCount++;
+						board[i][j+1]=1;
+						
 					}
+					j++;
 				  }
-				  for(int j=1+dotCount; j<1+dotCount+xCount;j++){
-					board[i][j] = 1;
-				  }
+				  
 			}
 			
 
@@ -129,7 +129,7 @@ public class GameOfLife {
 		int aliveCount = count(board, i, j);
 		//alive
 		if(cellVal == 1){
-			if( aliveCount == 2 || aliveCount ==3){
+			if(aliveCount == 2 || aliveCount ==3){
 				return 1;
 			}
 			else{
@@ -202,4 +202,3 @@ public class GameOfLife {
 		StdDraw.pause(100); 
 	}
 }
-
